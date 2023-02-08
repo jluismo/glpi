@@ -555,6 +555,10 @@ class Agent extends CommonDBTM
                 }
             }
 
+            //remote_addr contains remote ip address
+            if ($this->fields['remote_addr'] != '') 
+                $addresses[] = $this->fields['remote_addr'];            
+
            //append linked ips
             $ports_iterator = $DB->request([
                 'SELECT' => ['ips.name', 'ips.version'],
